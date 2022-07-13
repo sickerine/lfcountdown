@@ -36,8 +36,8 @@ function UpdateEndDate(){
     updatedate = new Date()
     resetdate = new Date()
     previewdate = new Date()
-    previewdate.setUTCDate(previewdate.getUTCDate() + (3 - previewdate.getUTCDay()))
-    previewdate.setUTCHours(14, 0, 0, 0)
+    previewdate.setUTCDate(previewdate.getUTCDate() + (4 - previewdate.getUTCDay()))
+    previewdate.setUTCHours(9, 0, 0, 0)
     if (resetdate.getUTCHours() >= resethour) {
         resetdate.setUTCDate(resetdate.getUTCDate() + 1)
     }
