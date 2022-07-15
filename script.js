@@ -24,6 +24,7 @@ let currentdate = new Date()
 let updatedate
 let resetdate
 let previewdate
+let mobiusdate
 let hourdata = {
     "NA": {
         resethour: 20,
@@ -36,6 +37,7 @@ function UpdateEndDate(){
     updatedate = new Date()
     resetdate = new Date()
     previewdate = new Date()
+    mobiusdate = new Date(2022, 8, 7, 12, 0, 0)
     previewdate.setUTCDate(previewdate.getUTCDate() + (4 - previewdate.getUTCDay()))
     previewdate.setUTCHours(9, 0, 0, 0)
     if (resetdate.getUTCHours() >= resethour) {
@@ -60,6 +62,7 @@ function UpdateTimers() {
     let distance = resetdate.getTime() - currentdate.getTime();
     let distance2 = updatedate.getTime() - currentdate.getTime();
     let distance3 = previewdate.getTime() - currentdate.getTime();
+    let distance4 = mobiusdate.getTime() - currentdate.getTime();
 
     if (distance <= 0) {
         resetdate.setUTCDate(resetdate.getUTCDate() + 1)
@@ -92,6 +95,10 @@ function UpdateTimers() {
     let minutes3 = Math.floor((distance3 % (1000 * 60 * 60)) / (1000 * 60));
     let seconds3 = Math.floor((distance3 % (1000 * 60)) / 1000);
     
+    let days4 = Math.floor(distance4 / (1000 * 60 * 60 * 24));
+    let hours4 = Math.floor((distance4 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes4 = Math.floor((distance4 % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds4 = Math.floor((distance4 % (1000 * 60)) / 1000);
 
     if (!document.getElementById("reset")) {
         clearInterval(x);
@@ -102,11 +109,14 @@ function UpdateTimers() {
         + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0')
     document.getElementById("update").innerHTML = hours2.toString().padStart(2, '0') + ":"
         + minutes2.toString().padStart(2, '0') + ":" + seconds2.toString().padStart(2, '0')
-    document.getElementById("preview").innerHTML = days3.toString().padStart(1, '0') + ":" + hours3.toString().padStart(2, '0') + ":"
+        document.getElementById("preview").innerHTML = days3.toString().padStart(1, '0') + ":" + hours3.toString().padStart(2, '0') + ":"
         + minutes3.toString().padStart(2, '0') + ":" + seconds3.toString().padStart(2, '0')
+        document.getElementById("mobius").innerHTML = days4.toString().padStart(1, '0') + ":" + hours4.toString().padStart(2, '0') + ":"
+        + minutes4.toString().padStart(2, '0') + ":" + seconds4.toString().padStart(2, '0')
         $("#reset.date").text(resetdate.toDateString() + " " + resetdate.toTimeString().split(" ")[0])
         $("#update.date").text(updatedate.toDateString() + " " + updatedate.toTimeString().split(" ")[0])
         $("#preview.date").text(previewdate.toDateString() + " " + previewdate.toTimeString().split(" ")[0])
+        $("#mobius.date").text(mobiusdate.toDateString() + " " + mobiusdate.toTimeString().split(" ")[0])
     }
 
 waitForElm('#reset').then((elem) => {

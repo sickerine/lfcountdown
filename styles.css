@@ -1,71 +1,63 @@
+* {
+    margin:0;
+    padding:0;
+}
+
 body {
     background-color: black;
     color: white;
     font-family: monospace;
-    height: 10px
 }
+
 
 body > div {
-    position: absolute;
-    left: 0;
-    right: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0%;
+    position:absolute;
     top: 0;
     bottom: 0;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-
-#timers {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    gap: 25%;
+    left: 0;
+    right: 0;
+    padding:7.5%;
 }
 
 .timercontainer {
-    display:flex;
-    flex-direction: column;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    flex:1;
-    position: relative;
+    flex-direction: column;
+    width:45%;
+    
 }
 
 .timer {
-    font-size: 6em;
-    width: 100%;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
+    font-size: 4vw;
+}
+
+.timername{
+    font-size: 2vw;
 }
 
 .date {
-    position: absolute;
-    width: 100%;
-    top: 20px;
-    font-size: 2em;
-    text-align: center;
+    font-size: 1.5vw;
 }
 
 
-@media (max-width: 1500px) {
-    body > div {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        display:flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
+@media (max-width: 800px) {
     .timercontainer {
-        width:100%
+        width: 100%;
+    }
+    .timer {
+        font-size: 12vw;
     }
     
-
+    .timername{
+        font-size: 3vw;
+    }
+    
+    .date {
+        font-size: 3vw;
+    }
 }
