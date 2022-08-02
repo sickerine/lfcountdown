@@ -37,7 +37,7 @@ function UpdateEndDate(){
     updatedate = new Date()
     resetdate = new Date()
     previewdate = new Date()
-    mobiusdate = new Date(2022, 8, 7, 12, 0, 0)
+    mobiusdate = new Date(2022, 9, 19, 12, 0, 0)
     previewdate.setUTCDate(previewdate.getUTCDate() + (4 - previewdate.getUTCDay()))
     previewdate.setUTCHours(9, 0, 0, 0)
     if (resetdate.getUTCHours() >= resethour) {
